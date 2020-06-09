@@ -15,7 +15,7 @@
 bq_spread_json_fields <- function (json_fields, project_name, dataset_name, table_name, json_column_name, destination_table_name=NULL) {
   generate_extraction_string <- function (fieldname) {
     destination_col_name <- stringr::str_replace_all(fieldname,"[\\[\\]]","")
-    destination_col_name <- stringr::str_replace_all(destination_col_name,"[.]","_")
+    destination_col_name <- stringr::str_replace_all(destination_col_name,"[.]","__")
     keyname <- paste("['",fieldname,"']",sep="")
     paste('JSON_EXTRACT_SCALAR(json_text.',json_column_name,', "$',keyname,'") AS ',destination_col_name,sep="")
   }
