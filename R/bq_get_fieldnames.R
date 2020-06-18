@@ -27,5 +27,5 @@ bq_get_json_fieldnames <- function (project_name, dataset_name, table_name, json
             FROM keys
             CROSS JOIN UNNEST(keys.keys) AS field_names
             ORDER BY field_names', sep="")
-  bq_table_download(bq_dataset_query(bigrquery::bq_dataset(project_name, dataset_name), q))
+  bigrquery::bq_table_download(bq_dataset_query(bigrquery::bq_dataset(project_name, dataset_name), q))
 }

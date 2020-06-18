@@ -22,10 +22,10 @@ bq_replace_string <- function (column_names, str_to_replace, new_string, project
   bq_ds <- bigrquery::bq_dataset(project_name, dataset_name)
   
   if(!is.null(destination_table_name)) {
-    bq_dest_tbl <- bq_table(bq_ds, destination_table_name)
-    result <- bq_dataset_query(bq_ds, q, bq_dest_tbl)
+    bq_dest_tbl <- bigrquery::bq_table(bq_ds, destination_table_name)
+    result <- bigrquery::bq_dataset_query(bq_ds, q, bq_dest_tbl)
   } else {
-    result <- bq_dataset_query(bq_ds, q)
+    result <- bigrquery::bq_dataset_query(bq_ds, q)
   }
   return(result)
 }

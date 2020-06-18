@@ -44,7 +44,7 @@ bq_flatten_json <- function (project_name, dataset_name, table_name, json_column
               WHERE ',json_column_name,' IS NOT NULL', 
             sep="")
   bq_ds <- bigrquery::bq_dataset(project_name, dataset_name)
-  bq_dest_tbl <- bq_table(bq_ds, destination_table_name)
-  bq_dataset_query(bq_ds, q, bq_dest_tbl)
+  bq_dest_tbl <- bigrquery::bq_table(bq_ds, destination_table_name)
+  bigrquery::bq_dataset_query(bq_ds, q, bq_dest_tbl)
 }
 
