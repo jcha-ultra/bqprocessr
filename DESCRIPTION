@@ -17,5 +17,5 @@ RoxygenNote: 7.1.0.9000
 Imports: 
     bigrquery,
     stringr,
-    dbi,
+    DBI,
     dplyr
